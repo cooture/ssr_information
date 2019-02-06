@@ -28,7 +28,7 @@ obfsparam = "breakwa11.moe"
 obfsparam_base = make_base64(obfsparam)
 protoparam = ""
 protoparam = make_base64(protoparam)
-remarks = "测试中文"
+remarks = "Google"
 remarks_base = make_base64(remarks)
 
 
@@ -51,11 +51,13 @@ def getssr():
 
     obfsparam = str(data['obfs_param'])
     obfsparam_base = make_base64(obfsparam)
+    group="rankin"
+    group_base = make_base64(group)
 
     # ssr://base64(host:port:protocol:method:obfs:base64pass/?obfsparam=base64param&protoparam=base64param&remarks=base64remarks&group=base64group&udpport=0&uot=0
 
     url_noparam = host + ":" + port + ":" + protocol + ":" + method + ":" + obfs + ":" + password_base
-    param = "/?" + "obfsparam=" + obfsparam_base + "&remarks=" + remarks_base
+    param = "/?" + "obfsparam=" + obfsparam_base + "&remarks=" + remarks_base+"&group="+group_base
     url = url_noparam + param
 
     final = "ssr://" + make_base64(url)
