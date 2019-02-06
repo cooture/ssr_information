@@ -1,4 +1,5 @@
 import os
+import subprocess
 import sys
 
 from django.shortcuts import render
@@ -24,5 +25,5 @@ def dingyue(request):
 
 def status(request):
     cmd = "/etc/init.d/shadowsocks status"
-    (status, output) =  os.subprocess.getstatusoutput(cmd)
+    (status, output) =  subprocess.getstatusoutput(cmd)
     return HttpResponse(output)
