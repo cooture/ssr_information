@@ -24,5 +24,5 @@ def dingyue(request):
 
 def status(request):
     cmd = "/etc/init.d/shadowsocks status"
-    status = os.system(cmd)
-    return HttpResponse(status)
+
+    return HttpResponse(os.system(cmd))
