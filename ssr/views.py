@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from ssr.haha import getssr
 import base64
 
@@ -10,4 +11,4 @@ def dingyue(request):
     data = {
         'data': str(base64.b64encode(url.encode("utf-8")), 'utf-8')
     }
-    return render(request, "ssr_info.html", data)
+    return HttpResponse(str(base64.b64encode(url.encode("utf-8")), 'utf-8'))
