@@ -18,5 +18,6 @@ from django.urls import path
 from ssr import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.dingyue)
+    path('',views.dingyue),
+    path('now/',views.status)
 ]

@@ -1,3 +1,6 @@
+import os
+import sys
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from ssr.haha import getssr
@@ -18,3 +21,8 @@ def dingyue(request):
 
 
     return response
+
+def status(request):
+    cmd = "/etc/init.d/shadowsocks status"
+    status = os.system(cmd)
+    return HttpResponse(status)
