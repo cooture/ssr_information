@@ -24,5 +24,5 @@ def dingyue(request):
 
 def status(request):
     cmd = "/etc/init.d/shadowsocks status"
-
-    return HttpResponse(os.system(cmd))
+    (status, output) =  os.subprocess.getstatusoutput('cat /proc/cpuinfo')
+    return HttpResponse(output)
