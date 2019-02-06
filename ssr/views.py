@@ -8,7 +8,13 @@ import base64
 def dingyue(request):
     url, _ = getssr()
 
-    data = {
-        'data': str(base64.b64encode(url.encode("utf-8")), 'utf-8')
-    }
-    return HttpResponse(str(base64.b64encode(url.encode("utf-8")), 'utf-8'))
+    # data = {
+    #     'data': str(base64.b64encode(url.encode("utf-8")), 'utf-8')
+    # }
+    #  Text file  
+    response = HttpResponse(content_type='text/plain')
+    response['Content-Disposition'] = 'attachment; filename=my.txt'
+    response.write(str(base64.b64encode(url.encode("utf-8")), 'utf-8'))
+
+
+    return response
