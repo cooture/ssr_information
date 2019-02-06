@@ -3,9 +3,11 @@
 import base64
 import json
 
+import qrcode
 import requests
-# import qrcode
 
+
+# import qrcode
 
 
 # define
@@ -29,13 +31,12 @@ protoparam = make_base64(protoparam)
 remarks = "测试中文"
 remarks_base = make_base64(remarks)
 
-if __name__ == '__main__':
+
+def getssr():
     try:
-        pass
-        # host = requests.get("http://ifconfig.me").text
+        host = requests.get("http://ifconfig.me").text
     except Exception as e:
         print("error internet with get ip")
-
 
     json_path = "package.json"
     file = open(json_path, 'r')
@@ -51,7 +52,6 @@ if __name__ == '__main__':
     obfsparam = str(data['obfs_param'])
     obfsparam_base = make_base64(obfsparam)
 
-
     # ssr://base64(host:port:protocol:method:obfs:base64pass/?obfsparam=base64param&protoparam=base64param&remarks=base64remarks&group=base64group&udpport=0&uot=0
 
     url_noparam = host + ":" + port + ":" + protocol + ":" + method + ":" + obfs + ":" + password_base
@@ -60,6 +60,7 @@ if __name__ == '__main__':
 
     final = "ssr://" + make_base64(url)
 
-    # img = qrcode.make(final)
+    img = qrcode.make(final)
     # img.save('test.png')
     print(final)
+    return final, img
