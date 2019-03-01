@@ -43,6 +43,6 @@ def getRawConfig(request):
 
 
 def getConfig(request):
-    jsonfile = open("/etc/shadowsocks.json").read()
+    jsonfile = open("/etc/shadowsocks.json")
     conjson = json.load(jsonfile)
     return JsonResponse(conjson)
