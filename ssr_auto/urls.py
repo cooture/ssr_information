@@ -19,5 +19,8 @@ from ssr import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.dingyue),
-    path('now/',views.status)
+    path('now/',views.status),
+    path('log/',views.getlog),
+    path('row/',views.getRawConfig),
+    path('config/',views.getConfig)
 ]

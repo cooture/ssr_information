@@ -1,9 +1,10 @@
+import json
 import os
 import subprocess
 import sys
 
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from ssr.haha import getssr
 import base64
 
@@ -27,3 +28,21 @@ def status(request):
     cmd = "/etc/init.d/shadowsocks status"
     (status, output) =  subprocess.getstatusoutput(cmd)
     return HttpResponse(output)
+
+
+def getlog(request):
+    cmd = "tail -n 50 /var/log/shadowsocksr.log"
+    (status, output) = subprocess.getstatusoutput(cmd)
+    return HttpResponse(output)
+
+
+def getRawConfig(request):
+    url, _ = getssr()
+
+    return HttpResponse(url)
+
+
+def getConfig(request):
+    jsonfile = open("/etc/shadowsocks.json").read()
+    conjson = json.load(jsonfile)
+    return JsonResponse(conjson)
