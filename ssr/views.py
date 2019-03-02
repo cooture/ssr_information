@@ -2,6 +2,7 @@ import json
 import os
 import subprocess
 import sys
+import time
 
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
@@ -46,3 +47,13 @@ def getConfig(request):
     jsonfile = open("/etc/shadowsocks.json")
     conjson = json.load(jsonfile)
     return JsonResponse(conjson)
+
+
+def getQRCode(request):
+    _, qr = getssr()
+    qr.save("ssr/static/qrcode.jpg")
+    return render(request,"qr.html", {"time": str(time.asctime( time.localtime(time.time()) ))})
+
+
+def getAllLink(request):
+    return render(request, "link.html")

@@ -38,10 +38,12 @@ def getssr():
     except Exception as e:
         print("error internet with get ip")
 
-    json_path = "/etc/shadowsocks.json"
+    json_path = "/etc/shadowsocks.json" # TODO:local path && dev path
+    dev_path = "package.json"
+    # print(dev_path)
     file = open(json_path, 'r')
     data = json.load(file)
-    print(data)
+    # print(data)
     port = str(data['server_port'])
     protocol = str(data['protocol'])
     method = str(data['method'])

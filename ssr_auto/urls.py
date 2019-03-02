@@ -22,5 +22,7 @@ urlpatterns = [
     path('now/',views.status),
     path('log/',views.getlog),
     path('row/',views.getRawConfig),
-    path('config/',views.getConfig)
+    path('config/',views.getConfig),
+    path('qr/', views.getQRCode),
+    path("link/", views.getAllLink)
 ]
