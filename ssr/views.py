@@ -51,7 +51,7 @@ def getConfig(request):
 
 def getQRCode(request):
     _, qr = getssr()
-    qr.save("ssr/static/qrcode.jpg")
+    qr.save("static/qrcode.jpg")
     return render(request,"qr.html", {"time": str(time.asctime( time.localtime(time.time()) ))})
 
 
