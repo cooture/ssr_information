@@ -1,0 +1,2 @@
+# ssr_information
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/37e5c06f07644b75986a0b6bdbe568ad)](https://app.codacy.com/app/ranxuebin/ssr_information?utm_source=github.com&utm_medium=referral&utm_content=ranxuebin/ssr_information&utm_campaign=Badge_Grade_Dashboard)
