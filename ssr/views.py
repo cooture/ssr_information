@@ -58,8 +58,8 @@ def getQRCode(request):
 def getLinkInfo(request):
     cmd = '''netstat -anp |grep 'ESTABLISHED' |grep 'python' |grep 'tcp6' |awk '{print $5}' |awk -F ":" '{print $1}' |sort -u'''
     (status, output) = subprocess.getstatusoutput(cmd)
-    cmd = cmd.sqlit()
-    return HttpResponse(cmd)
+    output = output.sqlit()
+    return HttpResponse(output)
 
 
 
