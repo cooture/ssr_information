@@ -24,5 +24,6 @@ urlpatterns = [
     path('row/',views.getRawConfig),
     path('config/',views.getConfig),
     path('qr/', views.getQRCode),
-    path("link/", views.getAllLink)
+    path("link/", views.getAllLink),
+    path('conect/',views.getLinkInfo)
 ]

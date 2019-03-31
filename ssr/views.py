@@ -55,5 +55,13 @@ def getQRCode(request):
     return render(request,"qr.html", {"time": str(time.asctime( time.localtime(time.time()) ))})
 
 
+def getLinkInfo(request):
+    cmd = '''netstat -anp |grep 'ESTABLISHED' |grep 'python' |grep 'tcp6' |awk '{print $5}' |awk -F ":" '{print $1}' |sort -u'''
+    (status, output) = subprocess.getstatusoutput(cmd)
+    cmd = cmd.sqlit()
+    return HttpResponse(cmd)
+
+
+
 def getAllLink(request):
     return render(request, "link.html")
