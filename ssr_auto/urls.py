@@ -25,5 +25,5 @@ urlpatterns = [
     path('config/',views.getConfig),
     path('qr/', views.getQRCode),
     path("link/", views.getAllLink),
-    path('conect/',views.getLinkInfo)
+    path('connect/',views.getLinkInfo)
 ]
